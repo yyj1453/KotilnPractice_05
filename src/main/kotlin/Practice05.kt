@@ -70,7 +70,7 @@ fun main() {
     someFun2(20, 10)
 }
  */
-
+/*  고차 함수
 fun hofFun(arg: (Int) -> Boolean): () -> String {                                                                       // hofFun은 일반 함수, arg는 람다 함수
     val result = if(arg(10)) {
         "valid"
@@ -83,3 +83,30 @@ fun main() {
     val result = hofFun({no -> no > 0})
     println(result())
 }
+ */
+/*  널 안정성 1
+fun main() {
+    var data: String? = null
+    var length = if (data == null) {                                                                                    // 값이 null일 경우 오류발생을 대비하여 작성
+        0
+    } else {
+        data.length
+    }
+    println("data length: $length")
+}
+ */
+/*  널 안정성 2
+fun main() {
+    var data: String? = null
+    println("data length: ${data?.length ?: 0}")                                                                        // 널 안정성 연산자 (엘비스 연산자 "?:")
+}
+ */
+/*  널 안정성 3
+fun some(data: String?) : Int {
+    return data!!.length                                                                                                // data에 null이 들어올 경우 오류가 아닌 예외처리
+}
+fun main() {
+    println(some("yyj"))
+    println(some(null))
+}
+ */
